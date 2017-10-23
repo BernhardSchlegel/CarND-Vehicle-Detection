@@ -8,7 +8,7 @@
 The goals / steps of this project are the following:
 
 * Perform a Histogram of Oriented Gradients (HOG) feature extraction on a labeled training set of images and train a classifier Linear SVM classifier
-* Optionally, you can also apply a color transform and append binned color features, as well as histograms of color, to your HOG feature vector. 
+* Optionally, you can also apply a color transform and append binned color features, as well as histograms of color, to your HOG feature vector.
 * Note: for those first two steps don't forget to normalize your features and randomize a selection for training and testing.
 * Implement a sliding-window technique and use your trained classifier to search for vehicles in images.
 * Run your pipeline on a video stream (start with the test_video.mp4 and later implement on full project_video.mp4) and create a heat map of recurring detections frame by frame to reject outliers and follow detected vehicles.
@@ -23,6 +23,12 @@ The goals / steps of this project are the following:
 [image6]: ./examples/labels_map.png
 [image7]: ./examples/output_bboxes.png
 [video1]: ./project_video.mp4
+
+ENHANCEMENTS
+
+- XSTART and XSTOP
+- Generated more test images (8-15, format png)
+-
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
 ###Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -52,6 +58,9 @@ Here is an example using the `YCrCb` color space and HOG parameters of `orientat
 ![alt text][image2]
 
 ####2. Explain how you settled on your final choice of HOG parameters.
+
+LUV and YUV both worked nice with anything but HOG, but LUV yielded negative values in
+one channel, which to not work with the ´sqrt()´ built into `sk-image.hog()`.
 
 I tried various combinations of parameters and...
 
@@ -105,4 +114,3 @@ Here's an example result showing the heatmap from a series of frames of video, t
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
 Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
-
